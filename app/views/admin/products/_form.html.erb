@@ -1,0 +1,28 @@
+<div class="modal fade" id="<%= id %>">
+  <%= simple_form_for(action, url: url, remote: true) do |f| %>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><%= title %></h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-inputs">
+          <%= f.input :name, class: 'form-control' %>
+          <%= f.input :status, collection: Product.statuses.keys.to_a, prompt: true %>
+        </div>
+
+        <div class="field">
+          <label for="product_pics">Pictures</label>
+          <%= f.file_field :pics, multiple: true %>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

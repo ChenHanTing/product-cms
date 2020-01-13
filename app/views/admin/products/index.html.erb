@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="d-flex bd-highlight mb-2">
+    <div class="mr-auto p-2 bd-highlight">
+      <h1>Products</h1>
+
+      <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <th>status</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>SKU</th>
+            <th>Updated</th>
+            <th>action</th>
+          </tr>
+        </thead>
+
+        <tbody id='products'>
+          <%= render @products %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <%= link_to 'New product', '#new_product', data: { toggle: 'modal' }, class: 'btn btn-primary' %>
+</div>
+
+<%= render 'admin/products/form', id: 'new_product',
+    action: Product.new, url: admin_products_path, title: 'New product' %>
+
+<div id='remote-container'></div>
+
+<div id='show-container'></div>

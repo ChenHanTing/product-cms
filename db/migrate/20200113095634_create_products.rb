@@ -4,6 +4,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :sku
       t.integer :status, default: 0
+      t.integer :user_id, foreign_key: true
 
       t.timestamps
     end

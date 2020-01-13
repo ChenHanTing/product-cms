@@ -1,0 +1,17 @@
+<tr id="<%= product.id %>">
+  <td><%= product.status %></td>
+  <td><%= product.id %></td>
+  <td><%= product.name %></td>
+  <td><%= product.sku %></td>
+  <td><%= product.updated_at.strftime("%F %T") %></td>
+  <td>
+    <% if user_signed_in? && ( product.user == current_user ) %>
+      <%= link_to (fa_icon 'search'), admin_product_path(product), remote: true %>
+      <%= link_to (fa_icon 'pencil'), edit_admin_product_path(product), remote: true %>
+      <%= link_to (fa_icon 'trash'), admin_product_path(product), remote: true,
+            method: 'delete', data: { confirm: "Are you sure?" } %>
+    <% else %>
+      <%= link_to (fa_icon 'search'), admin_product_path(product), remote: true %>
+    <% end %>
+  </td>
+</tr>

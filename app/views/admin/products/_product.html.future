@@ -1,0 +1,17 @@
+<div class="btn-group btn-group-toggle" data-toggle="buttons" data-remote="true">
+  <label class="btn btn-sm btn-secondary active">
+    <input type="radio" name="status" id="opt1-<%= product.id %>" autocomplete="off" checked
+            data-remote="true" onclick="document.location.href='<%= status_admin_product_path(product) %>">
+    進貨中
+  </label>
+  <label class="btn btn-sm btn-secondary">
+    <input type="radio" name="status" id="opt2-<%= product.id %>" autocomplete="off"
+            data-remote="true" onclick="document.location.href='<%= status_admin_product_path(product) %>">
+    上架
+  </label>
+  <label class="btn btn-sm btn-secondary">
+    <input type="radio" name="status" id="opt3-<%= product.id %>" autocomplete="off"
+            data-remote="true" onclick="document.location.href='<%= status_admin_product_path(product) %>">
+    下架
+  </label>
+</div>

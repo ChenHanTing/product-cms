@@ -26,15 +26,20 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-# bootstrap 4
-gem 'bootstrap', '~> 4.4.1'
 # devise
 gem 'devise'
 gem 'devise-i18n'
-gem 'devise-bootstrap-views'
 
 # models
 gem 'annotate'
+
+gem 'simple_form'
+
+gem 'font-awesome-rails'
+
+# Rails 5.2 and Rails 6
+gem 'active_storage_validations'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

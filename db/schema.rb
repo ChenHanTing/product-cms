@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_01_13_100131) do
     t.string "name"
     t.string "sku"
     t.integer "status", default: 0
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

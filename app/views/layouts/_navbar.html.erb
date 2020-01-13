@@ -1,30 +1,34 @@
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-
-  <ul class="navbar-nav ml-auto">
-    <%= content_tag :li do %>
-      <li class="nav-item"><%= link_to 'English', { locale: :en }, class: "nav-link" %></li>
-    <% end unless current_page?(locale: :en) %>
-    <%= content_tag :li do %>
-      <li class="nav-item"><%= link_to '繁體中文', { locale: :"zh-TW" }, class: "nav-link" %></li>
-    <% end unless current_page?(locale: :"zh-TW") %>
-  </ul>
-
-  <ul class="navbar-nav text-right">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <% if current_user %>
-        <img class="avatar" src="#">
-        <%= current_user.username %>
-      <% else %>
-        <%= t('navbar.account') %>
-      <% end %>
-    </a>
-    <div class="dropdown-menu  dropdown-menu-right">
-      <% if current_user %>
-        <%= link_to t('navbar.logout'), destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-      <% else %>
-        <a class="dropdown-item" href="<%= new_user_registration_path %>"><span class="fa fa-user"></span><%= t('navbar.signup') %></a>
-        <a class="dropdown-item" href="<%= new_user_session_path %>"><span class="fa fa-sign-in"></span><%= t('navbar.login') %></a>
-      <% end %>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="d-flex flex-grow-1">
+        <span class="w-100 d-lg-none d-block"></span>
+        <a class="navbar-brand" href="<%= admin_products_path %>">
+            Ezlite Shop
+        </a>
+        <div class="w-100 text-right">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar7">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
     </div>
-  </ul>
+
+    <div class="collapse navbar-collapse flex-grow-1 text-right">
+      <ul class="navbar-nav ml-auto flex-nowrap">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <% if current_user %>
+            <%= current_user.username %>
+          <% else %>
+            <%= t('navbar.account') %>
+          <% end %>
+        </a>
+
+        <div class="dropdown-menu  dropdown-menu-right">
+          <% if current_user %>
+            <%= link_to t('navbar.logout'), destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          <% else %>
+            <a class="dropdown-item" href="<%= new_user_registration_path %>"><span class="fa fa-user"></span><%= t('navbar.signup') %></a>
+            <a class="dropdown-item" href="<%= new_user_session_path %>"><span class="fa fa-sign-in"></span><%= t('navbar.login') %></a>
+          <% end %>
+        </div>
+      </ul>
+    </div>
 </nav>
