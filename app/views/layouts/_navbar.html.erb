@@ -12,7 +12,7 @@
   <ul class="navbar-nav text-right">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <% if current_user %>
-        <img class="avatar" src="<%# current_user.gravatar_url %>">
+        <img class="avatar" src="#">
         <%= current_user.username %>
       <% else %>
         <%= t('navbar.account') %>
