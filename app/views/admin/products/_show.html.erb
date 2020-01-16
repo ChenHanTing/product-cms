@@ -17,6 +17,21 @@
         </p>
 
         <p>
+          <strong>Number:</strong>
+          <%= @product.original_price %>
+        </p>
+
+         <p>
+          <strong>Original Price:</strong>
+          <%= @product.original_price %>
+        </p>
+
+         <p>
+          <strong>Market Price:</strong>
+          <%= @product.market_price %>
+        </p>
+
+        <p>
           <strong>Pictures:</strong>
           <div class='frame'>
             <% @product.pics.each do |pic| %>

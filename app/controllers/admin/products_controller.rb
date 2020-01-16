@@ -4,7 +4,7 @@ class Admin::ProductsController < ApplicationController
   layout 'admin'
 
   def index
-    @products = Product.all.order(id: :desc)
+    @products = current_user.products.all.order(id: :desc)
   end
 
   def create
@@ -48,10 +48,11 @@ class Admin::ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :status, pics: [])
+    params.require(:product).permit(:name, :status, :number, :market_price,
+                                    :original_price, pics: [])
   end
 
   def find_product
-    @product = Product.find_by(id: params[:id])
+    @product = current_user.products.find_by(id: params[:id])
   end
 end

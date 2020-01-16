@@ -36,6 +36,9 @@ ActiveRecord::Schema.define(version: 2020_01_13_100131) do
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "sku"
+    t.integer "market_price"
+    t.integer "original_price"
+    t.integer "number"
     t.integer "status", default: 0
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false

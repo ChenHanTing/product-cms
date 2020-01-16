@@ -10,8 +10,6 @@
       <%= link_to (fa_icon 'pencil'), edit_admin_product_path(product), remote: true %>
       <%= link_to (fa_icon 'trash'), admin_product_path(product), remote: true,
             method: 'delete', data: { confirm: "Are you sure?" } %>
-    <% else %>
-      <%= link_to (fa_icon 'search'), admin_product_path(product), remote: true %>
     <% end %>
   </td>
 </tr>
