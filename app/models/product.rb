@@ -1,9 +1,5 @@
 class Product < ApplicationRecord
-  # Inside status
-  # on:    上架
-  # off:   下架
-  # stock: 進貨中
-  enum status: { stock: 0, on_shelves: 1, off_shelves: -1 }
+  enum status: { on_shelves: 0, stock: 1, off_shelves: -1 }
 
   has_many_attached :pics, dependent: :destroy
   belongs_to :user

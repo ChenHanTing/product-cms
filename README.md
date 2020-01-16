@@ -35,7 +35,7 @@
 
 - Database: mysql
 
-# 實作
+# 後台實作
 
 1. 安裝node.js
 
@@ -86,13 +86,17 @@
 
 8. 確定`model`後，完成接續的Routes, Controller, View
 
-9. 完成收工
+   # 前台實作
+
+9. 控制器新增`index`, `show`動作
+
+10. 進去頁面前不用先登入
+
+11. 只顯示上架中的商品
 
 # 尚未完成
 
 - `Admin::ProductsController` 的`status` 動作預期為改變狀態用，不過後來沒寫
-- 頁面畫面尚未優化，仍處於陽春狀態
-- 尚未瞭解Rails 6如何使用webpack處理css, javascript
 - 沒有寫測試
 
 # 成品
@@ -128,6 +132,14 @@
 刪除列表
 
 ![image](https://github.com/ChenHanTing/product-cms/blob/master/doc-pics/delete.gif)
+
+前台列表
+
+![image](https://github.com/ChenHanTing/product-cms/blob/master/doc-pics/client_index.jpg)
+
+前台檢視商品（拿後台的樣板）
+
+![image](https://github.com/ChenHanTing/product-cms/blob/master/doc-pics/client_show.jpg)
 
 # 參考資料
 

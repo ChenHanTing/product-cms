@@ -1,0 +1,27 @@
+<%= stylesheet_link_tag 'client/products' %>
+
+<section class="cards">
+  <% @products.each do |product| %>
+    <div class="card">
+      <div class="card__image-container">
+        <%= cover(product) %>
+      </div>
+      <div class="card__content">
+        <p class="card__title text--medium">
+          <%= product.name %>
+        </p>
+        <div class="card__info">
+          <p class="text--medium"><del><%= product.original_price %></del></p>&nbsp;
+          <p class="text--medium"><%= product.market_price %></p>
+          <p class="card__price text--medium">
+            <a data-remote="true" href="<%= admin_product_path(product) %>">
+              Detail
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</section>
+
+<div id='show-container'></div>
