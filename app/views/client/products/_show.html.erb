@@ -1,0 +1,69 @@
+<%= stylesheet_link_tag 'client/modal' %>
+<script>
+  function getPrice(){
+    var numberValue = document.getElementById("order_number").value;
+    var dashboard = $(".switch-box")[0].checked;
+    var market_price = parseInt("<%= @product.market_price %>")
+
+    if(dashboard == true){
+      $("#total-price").html("Total: " + numberValue*market_price);
+    }else{
+      $("#total-price").html("Show total");
+    }
+  }
+</script>
+
+<div class="modal fade" id="show_product">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Show Product</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      </div>
+      <div class="modal-body overflow-auto">
+
+        <p>
+          <% if @product.user != current_user %>
+            <%= simple_form_for Order.new, url: order_client_product_path(@product) do |f| %>
+              <%= f.input :number %>
+              <%= f.submit "Submit", class: 'btn btn-primary' %>
+            <% end %>
+
+            <small class="form-text text-muted">
+              <label class="switch">
+                <input type="checkbox" class="switch-box" onclick="getPrice()">
+                <span class="slider round"></span>
+              </label>
+
+              <div style="display:inline;" id="total-price">&nbsp;Show total</div>
+            </small>
+          <% end %>
+        </p>
+
+        <p>
+          <strong>Name:</strong>
+          <%= @product.name %>
+        </p>
+
+        <p>
+          <strong>Inventory:</strong>
+          <%= @product.number %>
+        </p>
+
+        <p>
+          <strong>Original Price:</strong>
+          <%= @product.original_price %>
+        </p>
+
+         <p>
+          <strong>Market Price:</strong>
+          <%= @product.market_price %>
+        </p>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

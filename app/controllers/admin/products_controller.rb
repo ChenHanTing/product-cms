@@ -15,6 +15,14 @@ class Admin::ProductsController < ApplicationController
     @product.sku = "#{Time.current.to_i}#{serial_num}"
 
     if @product.save
+      if params[:remember]
+        cookies[:product_name] = @product.name
+        cookies[:original_price] = @product.original_price
+      else
+        cookies.delete(:product_name)
+        cookies.delete(:original_price)
+      end
+
       respond_to :js
     else
       respond_to { |format| format.js { render js: "alert('failure')" } }
@@ -49,7 +57,7 @@ class Admin::ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :status, :number, :market_price,
-                                    :original_price, pics: [])
+                                    :original_price, :remember, pics: [])
   end
 
   def find_product

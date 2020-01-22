@@ -9,6 +9,19 @@
   margin: 0;
 }
 
+a {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:hover
+{
+  // 隱藏超連結
+  color: rgb(197, 64, 197);
+  text-decoration:none;
+}
+
 body {
   background-color: #303032;
 }

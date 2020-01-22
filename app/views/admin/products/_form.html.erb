@@ -8,9 +8,11 @@
       </div>
       <div class="modal-body">
         <div class="form-inputs">
-          <%= f.input :name, class: 'form-control' %>
-          <%= f.input :original_price, class: 'form-control' %>
-          <%= f.input :market_price, class: 'form-control' %>
+          <%= f.input :name %>
+          <%= f.input :number %>
+          <%= f.input :original_price %>
+          <%= f.input :market_price %>
+          <%= f.input :remember %>
           <%= f.input :status, collection: Product.statuses.keys.to_a, prompt: true %>
         </div>
 

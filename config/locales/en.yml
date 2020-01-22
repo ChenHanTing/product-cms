@@ -35,3 +35,7 @@ en:
     attributes:
       user:
         login: "Username or email"
+  simple_form:
+    labels:
+      product:
+        remember: "Remember me"

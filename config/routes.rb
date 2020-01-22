@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   namespace :client do
-    resources :products, only: %i[index show]
+    resources :products, only: %i[index show] do
+      post 'order', on: :member
+    end
   end
 
   namespace :admin do

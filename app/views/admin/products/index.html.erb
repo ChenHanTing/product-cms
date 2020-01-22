@@ -25,7 +25,8 @@
 </div>
 
 <%= render 'admin/products/form', id: 'new_product',
-    action: Product.new, url: admin_products_path, title: 'New product' %>
+    action: Product.new(name: cookies[:product_name], original_price: cookies[:original_price]),
+                        url: admin_products_path, title: 'New product' %>
 
 <div id='remote-container'></div>
 
