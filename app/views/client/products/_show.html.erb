@@ -23,9 +23,9 @@
       <div class="modal-body overflow-auto">
 
         <p>
-          <% if @product.user != current_user %>
+          <% if current_user && @product.user != current_user %>
             <%= simple_form_for Order.new, url: order_client_product_path(@product) do |f| %>
-              <%= f.input :number %>
+              <%= f.input :number%>
               <%= f.submit "Submit", class: 'btn btn-primary' %>
             <% end %>
 

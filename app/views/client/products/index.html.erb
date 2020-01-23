@@ -13,6 +13,10 @@
         <div class="card__info">
           <p class="text--medium"><del><%= product.original_price %></del></p>&nbsp;
           <p class="text--medium"><%= product.market_price %></p>
+        </div>
+
+        <div class="card__info">
+          <p class="text--medium"><small>Sold by <%= product.user.username %></small></p>
           <p class="card__price text--medium">
             <a data-remote="true" href="<%= client_product_path(product) %>">
               Detail
