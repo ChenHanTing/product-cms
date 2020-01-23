@@ -39,3 +39,5 @@ en:
     labels:
       product:
         remember: "Remember me"
+      order:
+        number: "Number of commodity you want to buy?"

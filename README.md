@@ -137,49 +137,33 @@
 
 ![image](https://github.com/ChenHanTing/product-cms/blob/master/doc-pics/client_index.jpg)
 
-前台檢視商品（拿後台的樣板）
+前台檢視商品（自己的商品）
 
-![image](https://github.com/ChenHanTing/product-cms/blob/master/doc-pics/client_show.jpg)
+![image](https://github.com/ChenHanTing/product-cms/blob/master/doc-pics/modal.jpg)
+
+前台檢視商品（別人的商品）
+
+![image](https://github.com/ChenHanTing/product-cms/blob/master/doc-pics/modal2.jpg)
+
+使用者加入錢包欄位（不過做完才想到拍賣網站的做法不是這樣，作法比較像是遊戲儲值的行為）
+
+![image](https://github.com/ChenHanTing/product-cms/blob/master/doc-pics/wallet.jpg)
+
+新增訂單資料表（若購買別人商品即形成訂單）
+
+![image](https://github.com/ChenHanTing/product-cms/blob/master/doc-pics/order.jpg)
+
+後台新增商品使用Cookie（沒有截圖）
 
 # 參考資料
 
-1. 使用者屬性
+1. 新增 Username（使用者名稱）[欄位](https://github.com/heartcombo/devise/wiki/How-To:-Allow-users-to-sign_in-using-their-username-or-email-address)
 
-   - 新增 Username（使用者名稱）欄位
+3. CSS：上傳圖片太大顯示[縮小](https://digishot.keenchief.com/tw/4163656835/4163656835)
 
-     參考資料：https://github.com/heartcombo/devise/wiki/How-To:-Allow-users-to-sign_in-using-their-username-or-email-address
+4. Bootstrap：[Navbar](https://www.codeply.com/go/qhaBrcWp3v)、 [Button font color](https://stackoverflow.com/questions/12471132/how-to-set-text-color-in-submit-button)、modal 內容太多如何[處理](https://getbootstrap.com/docs/4.4/utilities/overflow/)
 
-2. 如何使用active_storage
-
-   - `rails active_storage:install`
-
-3. CSS
-
-   - 上傳圖片太大顯示縮小：https://digishot.keenchief.com/tw/4163656835/4163656835
-
-4. Bootstrap
-
-   - Navbar：https://www.codeply.com/go/qhaBrcWp3v
-   - Navbar generator：https://mdbootstrap.com/tools/bootstrap-navbar-generator/
-   - Button generator：https://www.bestcssbuttongenerator.com/#/39
-   - Button font color：https://stackoverflow.com/questions/12471132/how-to-set-text-color-in-submit-button
-   - 如果內容物太多該如何處理：https://getbootstrap.com/docs/4.4/utilities/overflow/
-
-5. 如何製造流水號：https://stackoverflow.com/questions/88311/how-to-generate-a-random-string-in-ruby
-
-6. Rails 6 使用 jQuery：
-
-   - https://www.botreetechnologies.com/blog/introducing-jquery-in-rails-6-using-webpacker
-   - 看不懂`.modal()`解決方式：https://stackoverflow.com/questions/58371711/bootstrap-hide-modal-not-working-in-rails-6-using-ajax
-
-7. Rails Modal：
-
-   - https://www.driftingruby.com/episodes/not-rjs-and-turbolinks
-
-8. 遺漏的 VSCODE 套件
-
-   - ERB Helper Tags
-
-9. Enum
-
-   - `ArgumentError ('1' is not a valid status)` 一共有2種解決方法：https://stackoverflow.com/questions/47567790/getting-1-is-not-a-valid-status-after-giving-enum-datatype-in-model
+4. 如何製造[流水號](https://stackoverflow.com/questions/88311/how-to-generate-a-random-string-in-ruby)：
+5. Rails 6 [使用 jQuery](https://www.botreetechnologies.com/blog/introducing-jquery-in-rails-6-using-webpacker)
+6. 看不懂`.modal()`[解決方式](https://stackoverflow.com/questions/58371711/bootstrap-hide-modal-not-working-in-rails-6-using-ajax)
+7. [Enum] `ArgumentError ('1' is not a valid status)` 的2種[解決方法](https://stackoverflow.com/questions/47567790/getting-1-is-not-a-valid-status-after-giving-enum-datatype-in-model)
