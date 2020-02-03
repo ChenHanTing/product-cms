@@ -39,12 +39,6 @@
 6. 折扣可限定只套用 N 次或總共優惠 Y 元
 7. 折扣可限制特定時間內有效或是每月重新計算使用數量限制
 
-這邊可以接受用虛擬碼或是實際有 code 做討論
-
-會議上討論重點將會是
-1. 資料庫設計
-2. 折扣限制與優惠設計的彈性
-
 # 環境
 
 - Ruby: 2.6.3
@@ -104,13 +98,46 @@
 
 8. 確定`model`後，完成接續的Routes, Controller, View
 
-   # 前台實作
+# 前台實作
 
 9. 控制器新增`index`, `show`動作
 
-10. 進去頁面前不用先登入
+2. 進去頁面前不用先登入
 
-11. 只顯示上架中的商品
+3. 只顯示上架中的商品
+
+# 後台實作
+
+1. 側邊欄
+   - 後台管理系統產品須上架，以及操作優惠管理系統，需要透過側邊欄選擇頁面
+   - 側邊欄參考網站在[這裡](https://bootsnipp.com/snippets/N6pQ6)
+
+2. 如果想要在個人賣場加入Profile，請參考[這篇](https://medium.com/luanotes/build-instagram-by-ruby-on-rails-part-1-fef7837ee399)網站。首先要先在User表中開更多欄位。如果想要看原始碼的話，[這邊](https://github.com/thanhluanuit/instuigram)有Github連結
+
+````shell
+rails g migration AddMoreFieldsToUsers name:string website:string bio:text phone:integer gender:string
+````
+
+3. Toogle Button Example: [Link](https://www.w3schools.com/howto/howto_css_switch.asp)
+
+# Heroku
+
+有時候自己有重置資料庫的需求，所以需要Heroku的資料庫名及重置資料庫的指令。
+
+如何[查詢]( https://devcenter.heroku.com/articles/heroku-postgresql)資料庫名字： `heroku pg:info --app=hanting-shop`
+
+如何[重置](https://stackoverflow.com/questions/4820549/how-to-empty-a-heroku-database)資料庫：`heroku pg:reset DATABASE_URL`
+
+跑完重置後，請跑：`heroku run rake db:migrate  `
+
+以`hanting-shop`為例，需要跑以下指令
+
+````shell
+heroku pg:reset postgresql-concentric-46793 --app=hanting-shop
+heroku run rake db:migrate --app=hanting-shop 
+````
+
+
 
 # 尚未完成
 

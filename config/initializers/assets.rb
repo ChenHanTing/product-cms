@@ -16,4 +16,6 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.precompile += %w[login.css
                                                  client/products.css
                                                  client/modal.css
+                                                 admin/toggle_button.css
+                                                 users.css
                                                 ]

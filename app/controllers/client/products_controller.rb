@@ -36,7 +36,7 @@ class Client::ProductsController < ApplicationController
   private
 
   def order_params
-    params[:order].permit(:number)
+    params[:order].permit(:number, :delivery)
   end
 
   def find_product
