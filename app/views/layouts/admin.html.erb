@@ -11,6 +11,26 @@
 
   <body>
     <%= render "layouts/navbar" %>
-    <%= yield %>
+    <div class="row">
+      <div class="col-md-2">
+        <div class="card">
+          <article class="card-group-item">
+            <header class="card-header"><h6 class="title">Page </h6></header>
+            <div class="filter-content">
+              <div class="list-group list-group-flush">
+                <a href="<%= edit_user_path(current_user) %>" class="list-group-item">Edit Profile</a>
+                <a href="<%= user_path(current_user) %>" class="list-group-item">Profile</a>
+                <a href="<%= admin_products_path %>" class="list-group-item">PMS</a>
+                <a href="<%= admin_order_discounts_path %>" class="list-group-item">ODS</a>
+              </div>  <!-- list-group .// -->
+            </div>
+          </article> <!-- card-group-item.// -->
+        </div> <!-- card.// -->
+      </div>
+      <div class="col-md-10">
+        <%#= render "layouts/flash" %>
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

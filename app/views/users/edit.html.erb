@@ -1,0 +1,24 @@
+<h1>Edit profile here</h1>
+<%= simple_form_for(@user, remote: true) do |f| %>
+  <div class="row">
+      <div class="col-4"><span>
+        <%= f.input :username %>
+        <%= f.input :name %>
+        <%= f.input :bio %>
+        </span></div>
+      <div class="col-4"><span>
+        <%= f.input :website %>
+        <%= f.input :email %>
+        <%= f.input :phone %>
+        <%= f.input :gender %>
+      </span></div>
+      <div class="col-3"><span>
+        <%= f.input :number %>
+        <%= f.input :discount_price %>
+        <%= f.input :discount %>
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      </span></div>
+      <div class="col-1"><span></span></div>
+    </div>
+  </div>
+<% end %>
