@@ -47,7 +47,7 @@
 
 - Database: mysql
 
-# 後台實作
+## 後台實作
 
 1. 安裝node.js
 
@@ -98,7 +98,21 @@
 
 8. 確定`model`後，完成接續的Routes, Controller, View
 
-# 前台實作
+9. 側邊欄
+
+   - 後台管理系統產品須上架，以及操作優惠管理系統，需要透過側邊欄選擇頁面
+   - 側邊欄參考網站在[這裡](https://bootsnipp.com/snippets/N6pQ6)
+
+10. 如果想要在個人賣場加入Profile，請參考[這篇](https://medium.com/luanotes/build-instagram-by-ruby-on-rails-part-1-fef7837ee399)網站。首先要先在User表中開更多欄位。如果想要看原始碼的話，[這邊](https://github.com/thanhluanuit/instuigram)有Github連結
+
+````shell
+rails g migration AddMoreFieldsToUsers name:string website:string bio:text phone:integer gender:string
+````
+
+11. Toogle Button Example: [Link](https://www.w3schools.com/howto/howto_css_switch.asp)
+12. 目前後台共有個人頁面、編輯個人頁面、商品管理系統、優惠系統
+
+## 前台實作
 
 9. 控制器新增`index`, `show`動作
 
@@ -106,21 +120,9 @@
 
 3. 只顯示上架中的商品
 
-# 後台實作
 
-1. 側邊欄
-   - 後台管理系統產品須上架，以及操作優惠管理系統，需要透過側邊欄選擇頁面
-   - 側邊欄參考網站在[這裡](https://bootsnipp.com/snippets/N6pQ6)
 
-2. 如果想要在個人賣場加入Profile，請參考[這篇](https://medium.com/luanotes/build-instagram-by-ruby-on-rails-part-1-fef7837ee399)網站。首先要先在User表中開更多欄位。如果想要看原始碼的話，[這邊](https://github.com/thanhluanuit/instuigram)有Github連結
-
-````shell
-rails g migration AddMoreFieldsToUsers name:string website:string bio:text phone:integer gender:string
-````
-
-3. Toogle Button Example: [Link](https://www.w3schools.com/howto/howto_css_switch.asp)
-
-# Heroku
+## Heroku
 
 有時候自己有重置資料庫的需求，所以需要Heroku的資料庫名及重置資料庫的指令。
 
@@ -137,14 +139,31 @@ heroku pg:reset postgresql-concentric-46793 --app=hanting-shop
 heroku run rake db:migrate --app=hanting-shop 
 ````
 
+## Controller
+
+Rails 5 轉址返回使用`redirect_back`[說明](https://blog.bigbinary.com/2016/02/29/rails-5-improves-redirect_to_back-with-redirect-back.html)
+
+## Model
+
+如何使用 `build_profile` 和 `create_profile`：[這裡](https://stackoverflow.com/questions/7024301/what-is-the-difference-between-the-build-and-create-method-in-activerecord-relat/7024375)
+
+## 資料庫
+
+指令懶人包：`rails db:drop db:create db:migrate db:seed`
 
 
-# 尚未完成
+
+## 尚未完成
 
 - `Admin::ProductsController` 的`status` 動作預期為改變狀態用，不過後來沒寫
 - 沒有寫測試
 
-# 成品
+### Javascript
+
+- 淺談javascript, jQuery的Checkbox：[連結](https://www.w3schools.com/JSREF/prop_checkbox_checked.asp)、[連結](https://codertw.com/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/262020/)
+- 
+
+### 成品
 
 註冊頁面：`username`, `email`, `password`
 
@@ -178,6 +197,10 @@ heroku run rake db:migrate --app=hanting-shop
 
 ![image](https://github.com/ChenHanTing/product-cms/blob/master/doc-pics/delete.gif)
 
+後台新增側邊欄
+
+![image](https://github.com/ChenHanTing/product-cms/blob/master/doc-pics/sidebar.png)
+
 前台列表
 
 ![image](https://github.com/ChenHanTing/product-cms/blob/master/doc-pics/client_index.jpg)
@@ -188,7 +211,7 @@ heroku run rake db:migrate --app=hanting-shop
 
 前台檢視商品（別人的商品）
 
-![image](https://github.com/ChenHanTing/product-cms/blob/master/doc-pics/modal2.jpg)
+![image](https://github.com/ChenHanTing/product-cms/blob/master/doc-pics/modal2.png)
 
 使用者加入錢包欄位（不過做完才想到拍賣網站沒有遊戲儲值的行為）
 
@@ -202,16 +225,24 @@ heroku run rake db:migrate --app=hanting-shop
 
 ![image](https://github.com/ChenHanTing/product-cms/blob/master/doc-pics/cookie.jpg)
 
+後台編輯個人頁面
+
+![image](https://github.com/ChenHanTing/product-cms/blob/master/doc-pics/profile.png)
+
+後台優惠系統
+
+![image](https://github.com/ChenHanTing/product-cms/blob/master/doc-pics/ODM.png)
+
+
+
 # 參考資料
 
 1. 新增 Username（使用者名稱）[欄位](https://github.com/heartcombo/devise/wiki/How-To:-Allow-users-to-sign_in-using-their-username-or-email-address)
-
-3. CSS：上傳圖片太大顯示[縮小](https://digishot.keenchief.com/tw/4163656835/4163656835)
-
-4. Bootstrap：[Navbar](https://www.codeply.com/go/qhaBrcWp3v)、 [Button font color](https://stackoverflow.com/questions/12471132/how-to-set-text-color-in-submit-button)、modal 內容太多如何[處理](https://getbootstrap.com/docs/4.4/utilities/overflow/)
-
-4. 如何製造[流水號](https://stackoverflow.com/questions/88311/how-to-generate-a-random-string-in-ruby)：
-5. Rails 6 [使用 jQuery](https://www.botreetechnologies.com/blog/introducing-jquery-in-rails-6-using-webpacker)
-6. 看不懂`.modal()`[解決方式](https://stackoverflow.com/questions/58371711/bootstrap-hide-modal-not-working-in-rails-6-using-ajax)
-7. [Enum] `ArgumentError ('1' is not a valid status)` 的2種[解決方法](https://stackoverflow.com/questions/47567790/getting-1-is-not-a-valid-status-after-giving-enum-datatype-in-model)
+2. CSS：上傳圖片太大顯示[縮小](https://digishot.keenchief.com/tw/4163656835/4163656835)
+3. Bootstrap：[Navbar](https://www.codeply.com/go/qhaBrcWp3v)、 [Button font color](https://stackoverflow.com/questions/12471132/how-to-set-text-color-in-submit-button)、modal 內容太多如何[處理](https://getbootstrap.com/docs/4.4/utilities/overflow/)
+4. rails 的 [bootstrap simple_form](http://simple-form-bootstrap.plataformatec.com.br/examples/horizontal) 語法
+5. 如何製造[流水號](https://stackoverflow.com/questions/88311/how-to-generate-a-random-string-in-ruby)：
+6. Rails 6 [使用 jQuery](https://www.botreetechnologies.com/blog/introducing-jquery-in-rails-6-using-webpacker)
+7. 看不懂`.modal()`[解決方式](https://stackoverflow.com/questions/58371711/bootstrap-hide-modal-not-working-in-rails-6-using-ajax)
+8. [Enum] `ArgumentError ('1' is not a valid status)` 的2種[解決方法](https://stackoverflow.com/questions/47567790/getting-1-is-not-a-valid-status-after-giving-enum-datatype-in-model)
 

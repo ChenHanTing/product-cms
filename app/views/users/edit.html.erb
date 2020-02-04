@@ -18,15 +18,7 @@
       <div class="col-3"><span>
         <%= f.input :number %>
         <%= f.input :discount_price %>
-
-        <fieldset class="form-group boolean optional user_discount form-group-valid">
-          <label class="switch">
-            <input name="user[discount]" type="hidden" value="0">
-            <input class="form-check-input is-valid boolean optional" type="checkbox" value="1" checked="checked" name="user[discount]" id="user_discount">
-            <span class="slider round"></span>
-          </label>
-          <p><small>Discount</small></p>
-        </fieldset>
+        <%= f.input :discount_sw %>
 
         <%= f.button :submit, class: 'btn btn-primary' %>
       </span></div>

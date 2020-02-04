@@ -1,18 +1,31 @@
 class Admin::OrderDiscountsController < ApplicationController
+  before_action :find_discount, only: %i[edit update]
   before_action :authenticate_user!
   layout 'admin'
 
-  def show
+  def edit
     @user = User.find(current_user.id)
   end
 
-  # private
+  def update
+    if @discount.update(discount_params)
+      redirect_back(fallback_location: admin_order_discount_path(@discount))
+    else
+      respond_to { |format| format.js { render js: "alert('failure')" } }
+    end
+  end
 
-  # def order_params
-  #   params[:order].permit(:number, :delivery)
-  # end
+  private
 
-  # def find_product
-  #   @product = Product.find_by(id: params[:id])
-  # end
+  def discount_params
+    params.require(:discount)
+          .permit(:gift, :price_discount,
+                  :p_number, :d_number,
+                  :p_switch, :d_switch,
+                  :quota, :free_delivery_quota)
+  end
+
+  def find_discount
+    @discount = Discount.find_by(user: current_user)
+  end
 end

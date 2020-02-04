@@ -21,12 +21,13 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
       </div>
       <div class="modal-body overflow-auto">
-
         <p>
           <% if current_user && @product.user != current_user %>
+            <%= link_to '領取優惠券', '#', remote: true,
+                class: 'btn btn-danger btn-sm' %>
             <%= simple_form_for Order.new, url: order_client_product_path(@product) do |f| %>
               <%= f.input :number %>
-              <%= f.input :delivery %>
+              <%= f.input :delivery, collection: Order.deliveries.keys.to_a, prompt: true %>
               <%= f.submit "Submit", class: 'btn btn-primary' %>
             <% end %>
 

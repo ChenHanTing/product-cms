@@ -8,11 +8,8 @@ class Admin::ProductsController < ApplicationController
   end
 
   def create
-    serial_num = (0...5).map { ('A'..'z').to_a[rand(26)] }.join
-
     @product = Product.new(product_params)
     @product.user = current_user
-    @product.sku = "#{Time.current.to_i}#{serial_num}"
 
     if @product.save
       if params[:remember]
@@ -53,11 +50,29 @@ class Admin::ProductsController < ApplicationController
   def status
   end
 
+  def coupon
+    # @id = params[:id]
+
+    # if user_signed_in? && (@lab_forum.user == current_user)
+    #   status = @lab_forum.solved.eql?(false) ? true : false
+    #   @lab_forum.update(solved: status)
+    # end
+
+    # respond_to do |format|
+    #   format.js {render 'status'}
+    # end
+  end
+
   private
 
   def product_params
     params.require(:product).permit(:name, :status, :number, :market_price,
-                                    :original_price, :remember, pics: [])
+                                    :original_price, :remember, :gift,
+                                    :quantity_discount,
+                                    :q_number,
+                                    :q_switch,
+                                    :quantity,
+                                    pics: [])
   end
 
   def find_product

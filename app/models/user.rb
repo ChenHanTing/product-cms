@@ -3,10 +3,17 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :products
 
+  after_create :create_discount
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
   attr_accessor :login
+
+  # 建使用者的同時，連優惠券一起建立
+  def create_discount
+    Discount.create!(user_id: self.id)
+  end
 
   def self.find_for_database_authentication warden_conditions
     conditions = warden_conditions.dup

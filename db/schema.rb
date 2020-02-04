@@ -34,11 +34,20 @@ ActiveRecord::Schema.define(version: 2020_02_03_114953) do
   end
 
   create_table "discounts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "number"
-    t.string "price"
+    t.integer "price_discount", default: 0
+    t.integer "p_number", default: 0
+    t.integer "d_number", default: 0
+    t.boolean "p_switch", default: false
+    t.boolean "d_switch", default: false
+    t.integer "quota", default: 0
+    t.integer "free_delivery_quota", default: 0
     t.bigint "user_id"
+    t.bigint "order_id"
+    t.bigint "product_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_discounts_on_order_id"
+    t.index ["product_id"], name: "index_discounts_on_product_id"
     t.index ["user_id"], name: "index_discounts_on_user_id"
   end
 
@@ -61,9 +70,15 @@ ActiveRecord::Schema.define(version: 2020_02_03_114953) do
     t.integer "number"
     t.integer "status", default: 0
     t.integer "user_id"
+    t.boolean "remember", default: false
+    t.boolean "boolean", default: false
+    t.boolean "gift", default: false
+    t.integer "quantity_discount", default: 0
+    t.boolean "q_switch", default: false
+    t.integer "quantity", default: 0
+    t.integer "q_number", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "remember", default: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -74,16 +89,16 @@ ActiveRecord::Schema.define(version: 2020_02_03_114953) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "wallet", default: 2000
     t.string "username"
     t.string "name"
     t.string "website"
     t.text "bio"
-    t.integer "phone"
+    t.string "phone"
     t.integer "gender"
-    t.boolean "discount", default: false
+    t.integer "wallet", default: 2000000
+    t.boolean "discount_sw", default: false
     t.integer "number", default: 0
-    t.integer "dicount_price", default: 0
+    t.integer "discount_price", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

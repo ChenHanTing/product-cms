@@ -1,3 +1,13 @@
+<script>
+  function myFunc() {
+    let x = document.getElementById("product_gift").checked;
+    let y = $("#product_gift").prop('checked');
+
+    console.log(x, y);
+    console.log('Hello World');
+  }
+</script>
+
 <div class="modal fade" id="<%= id %>">
   <%= simple_form_for(action, url: url, remote: true) do |f| %>
   <div class="modal-dialog">
@@ -14,12 +24,21 @@
           <%= f.input :market_price %>
           <%= f.input :remember %>
           <%= f.input :status, collection: Product.statuses.keys.to_a, prompt: true %>
+          <%= f.input :gift, label: '是否為贈品', input_html: { onclick: "myFunc()"} %>
         </div>
 
         <div class="field">
           <label for="product_pics">Pictures</label>
           <%= f.file_field :pics, multiple: true %>
         </div>
+
+        <hr />
+
+        <h5>特定商品滿 X 件折 Y 元</h5>
+        <%= f.input :q_number, label: '買多優惠限制張數' %>
+        <%= f.input :quantity_discount, label: '買多優惠所需數量低標' %>
+        <%= f.input :quantity, label: '買多優惠(NTD)' %>
+        <%= f.input :q_switch, label: '開啟/關閉買多優惠功能' %>
       </div>
 
       <div class="modal-footer">

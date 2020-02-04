@@ -1,0 +1,67 @@
+<%= stylesheet_link_tag 'admin/toggle_button' %>
+
+<div class="container">
+  <h1>Order Discount System</h1>
+  <hr />
+  <div class="row">
+    <div class="col-4">
+      <span>
+        <h5>特定供應商場滿 X 件折 Y 元</h5>
+        <%= simple_form_for @user do |f| %>
+          <%= f.input :number, label: '商場內買多優惠所需數量低標' %>
+          <%= f.input :discount_price, label: '商場內買多優惠(NTD)' %>
+          <%= f.input :discount_sw, label: '開啟/關閉買多優惠功能' %>
+
+          <%= f.button :submit, class: 'btn btn-primary' %>
+        <% end %>
+      </span>
+    </div>
+
+    <div class="col-4">
+      <span>
+        <h5>訂單滿 X 元免運費</h5>
+        <%= simple_form_for(@discount, url: admin_order_discount_path(@discount)) do |f| %>
+          <%= f.input :free_delivery_quota, label: '滿額優惠(NTD)' %>
+          <%= f.input :d_number, label: '免運費優惠限制張數' %>
+          <%= f.input :d_switch, label: '開啟/關閉滿額免運費優惠功能'  %>
+          <%= f.button :submit, class: 'btn btn-primary' %>
+        <% end %>
+      </span>
+    </div>
+
+    <div class="col-4">
+      <span>
+      <h5>訂單滿 X 元折 Y 元</h5>
+        <%= simple_form_for(@discount, url: admin_order_discount_path(@discount)) do |f| %>
+          <%= f.input :p_number, label: '滿額優惠限制張數' %>
+          <%= f.input :price_discount, label: '滿額優惠所需數量低標' %>
+          <%= f.input :quota, label: '滿額優惠(NTD)' %>
+          <%= f.input :p_switch, label: '開啟/關閉滿額優惠功能'  %>
+
+          <%= f.button :submit, class: 'btn btn-primary' %>
+        <% end %>
+      </span>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="row">
+
+    <div class="col-4">
+      <span>
+        <h5>訂單滿 X 贈送特定商品（先當沒看到）</h5>
+      </span>
+    </div>
+
+    <div class="col-4">
+      <span>
+      </span>
+    </div>
+
+    <div class="col-4">
+      <span>
+      </span>
+    </div>
+  </div>
+</div>
