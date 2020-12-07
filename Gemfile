@@ -40,6 +40,8 @@ gem 'font-awesome-rails'
 # Rails 5.2 and Rails 6
 gem 'active_storage_validations'
 
+# erb pug version
+gem 'slim-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

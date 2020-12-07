@@ -8,7 +8,7 @@ class Product < ApplicationRecord
 
   validates_presence_of :name
 
-  validates :pics, content_type: ['image/png', 'image/jpg', 'image/jpeg']
+  validates :pics, content_type: %w[image/png image/jpg image/jpeg]
 
   private
 
