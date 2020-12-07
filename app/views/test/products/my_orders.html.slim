@@ -1,0 +1,9 @@
+- if @orders.nil?
+  p
+  | 沒有訂單
+- else
+  - @orders.find_each do |order|
+    table
+      tr
+        td=order.id
+        td=order.created_at.strftime("Printed on %m/%d/%Y")

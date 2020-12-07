@@ -1,7 +1,12 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  #
+
   has_many :products
+  has_many :fav_products
+  has_many :collected_products, through: :fav_products, source: :product
+  has_many :orders
 
   after_create :create_discount
 
@@ -21,5 +26,5 @@ class User < ApplicationRecord
     where(conditions).where(["lower(username) = :value OR lower(email) = :value", {value: login.strip.downcase}]).first
   end
 
-  enum gneder: { female: 0, male: 1}
+  enum gneder: { female: 0, male: 1 }
 end

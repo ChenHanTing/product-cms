@@ -1,0 +1,11 @@
+- if @cart.nil?
+  p
+  | 購物車內沒有商品
+- else
+  - @cart.cart_items.find_each do |item|
+    table
+      tr
+        td
+          = item.name
+        td
+          = item.value

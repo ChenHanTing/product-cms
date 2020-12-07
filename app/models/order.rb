@@ -1,6 +1,8 @@
 class Order < ApplicationRecord
   before_save :order_information
 
+  has_many :items
+
   validates_presence_of :number
 
   enum delivery: { seven_eleven: 0, hilife: 1, ok_mart: 2, courier: 3 }

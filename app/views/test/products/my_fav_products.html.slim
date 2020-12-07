@@ -1,0 +1,9 @@
+- if @products.nil?
+  p
+  | 沒有收藏商品
+- else
+  - @products.find_each do |product|
+    table
+      tr
+        td = product.name
+        td = "Note: <br> #{product.note}".html_safe

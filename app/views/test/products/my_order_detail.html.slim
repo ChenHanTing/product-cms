@@ -1,0 +1,14 @@
+- if @order.nil?
+  p
+  | 沒有訂單
+- else
+  table
+    tr
+      td=@order.id
+      td=@order.email
+
+  - @order.items.map do |item|
+    table
+      tr
+        td=item.name
+        td=item.value
