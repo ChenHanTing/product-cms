@@ -23,7 +23,7 @@
           <%= f.input :original_price %>
           <%= f.input :market_price %>
           <%= f.input :remember %>
-          <%= f.input :status, collection: Product.statuses.keys.to_a, prompt: true %>
+          <%= f.input :status, collection: Product.statuses.keys.to_a, prompt: nil %>
           <%= f.input :gift, label: '是否為贈品', input_html: { onclick: "myFunc()"} %>
         </div>
 

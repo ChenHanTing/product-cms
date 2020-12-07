@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin::ProductsController < ApplicationController
   before_action :find_product, only: %i[edit update destroy show]
   before_action :authenticate_user!
@@ -47,21 +49,9 @@ class Admin::ProductsController < ApplicationController
     end
   end
 
-  def status
-  end
+  def status; end
 
-  def coupon
-    # @id = params[:id]
-
-    # if user_signed_in? && (@lab_forum.user == current_user)
-    #   status = @lab_forum.solved.eql?(false) ? true : false
-    #   @lab_forum.update(solved: status)
-    # end
-
-    # respond_to do |format|
-    #   format.js {render 'status'}
-    # end
-  end
+  def coupon; end
 
   private
 
